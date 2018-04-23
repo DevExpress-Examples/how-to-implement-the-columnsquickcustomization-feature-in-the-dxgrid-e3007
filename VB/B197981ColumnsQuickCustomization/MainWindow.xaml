@@ -1,0 +1,19 @@
+﻿<Window x:Class="B197981ColumnsQuickCustomization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate x:Key="itemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding Path=Visible}" />
+                <TextBlock Text="{Binding Path=FieldName}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <dxg:GridControl x:Name="gridControl" AutoPopulateColumns="True" PreviewMouseDown="gridControl_PreviewMouseDown">
+        <dxg:GridControl.View>
+            <dxg:TableView x:Name="view" />
+        </dxg:GridControl.View>
+    </dxg:GridControl>
+</Window>
